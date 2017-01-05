@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Title</title>
+
+    <!-- Bootstrap -->
+    <!--<link href="./css/bootstrap.min.css" rel="stylesheet">-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--<script src="./js/bootstrap.min.js"></script>-->
+
+</head>
+<body>
+<h1>Do you love this guy&trade;?</h1>
+<img src="./images/0.png" class="harrison tilt">
+<h2 class="skew"></h2>
+<h2>And if you really love this guy</h2>
+<h1>You'll Buy A T-Shirt</h1>
+<hr>
+<h2>Click on a shirt</h2>
+<hr>
+
+
+<a href="https://www.teepublic.com/t-shirt/1025344-i-love-this-guy">
+    <h1>I love this guy - The OG</h1>
+    <img src="./images/1025344_1.jpg" class="shirt1">
+</a>
+
+<a href="https://www.teepublic.com/t-shirt/1031384-i-love-this-guy-color-text?store_id=111387">
+<h1>I love this guy - <span class='coloredChar' style='color:red '>R</span><span class='coloredChar' style='color:orange '>a</span><span class='coloredChar' style='color:fuchsia '>i</span><span class='coloredChar' style='color:green '>n</span><span class='coloredChar' style='color:blue '>b</span><span class='coloredChar' style='color:purple '>o</span><span class='coloredChar' style='color:red '>w</span><span class='coloredChar' style='color:orange '> </span><span class='coloredChar' style='color:fuchsia '>T</span><span class='coloredChar' style='color:green '>e</span><span class='coloredChar' style='color:blue '>x</span><span class='coloredChar' style='color:purple '>t</span></h1>
+
+    <img src="./images/1031384_1.jpg" class="shirt1">
+</a>
+
+<a href="https://www.teepublic.com/t-shirt/1031462-i-love-this-guy-white-text?store_id=111387">
+    <h1>I love this guy - White Text </h1>
+    <img src="./images/1031462_1.jpg" class="shirt1">
+</a>
+
+
+
+</body>
+<script>
+    var fwef;
+$(document).ready(function () {
+//            console.log("init");
+        fwef = function genRainbowText(input) {
+//            console.log("hello");
+
+            var genText = "";
+            var colors = ["red","orange","fuchsia","green","blue","purple"];
+//            console.log(input);
+
+            for(x = 0; x < input.length; x++){
+                var selchar = input.substr(x, 1);
+//                console.log(selchar);
+                genText += "<span class='coloredChar' style='color:"  + colors[x%6] + " '>" + selchar + "</span>"
+
+
+
+
+            }
+            $(".skew").append(genText);
+            console.log(genText);
+        };
+
+
+
+    fwef("We sure do");
+
+
+});
+</script>
+<style>
+    body{
+        width: 99%;
+        height: 99%;
+        font-family: "Comic Sans MS";
+        text-align: center;
+        overflow-x: hidden;
+
+    }
+    .harrison{
+        width: 50%;
+        height: 25%;
+    }
+    @-moz-keyframes spin {
+        from { -moz-transform: rotate(0deg); }
+        to { -moz-transform: rotate(360deg); }
+    }
+    @-webkit-keyframes spin {
+        from { -webkit-transform: rotate(0deg); }
+        to { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes spin {
+        from {transform:rotate(0deg);}
+        to {transform:rotate(360deg);}
+    }
+
+    .tilt{
+        -webkit-animation-name: spin;
+        -webkit-animation-duration: 3000ms;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        -moz-animation-name: spin;
+        -moz-animation-duration: 3000ms;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-timing-function: linear;
+        -ms-animation-name: spin;
+        -ms-animation-duration: 3000ms;
+        -ms-animation-iteration-count: infinite;
+        -ms-animation-timing-function: linear;
+        -o-transition: rotate(3600deg);
+    }
+    .skew{
+        /*-ms-transform: rotate(180deg); !* IE 9 *!*/
+        /*-webkit-transform: rotate(180deg); !* Chrome, Safari, Opera *!*/
+        /*transform: rotate(180deg);*/
+    }
+    a{
+        color: black;
+        text-decoration: none;
+    }
+    .shirt1{
+        width: 50%;
+        height: 50%;
+
+    }
+</style>
+</html>
